@@ -9,7 +9,7 @@ import com.algaworks.algafood.di.service.AtivacaoClienteService;
 
 @Controller
 public class MeuPrimeiroController {
-	
+
 	private AtivacaoClienteService ativacaoClienteService;
 	
 	public MeuPrimeiroController(AtivacaoClienteService ativacaoClienteService) {
@@ -21,10 +21,11 @@ public class MeuPrimeiroController {
 	@GetMapping("/hello")
 	@ResponseBody
 	public String hello() {
+	    Cliente joao = new Cliente("João", "joao@xyz.com", "3499998888");
+	    
+	    ativacaoClienteService.ativar(joao);
 		
-		Cliente joao = new Cliente("joao", "joao@xyz.com", "3499998888");
-		ativacaoClienteService.Ativar(joao);
-		return "Hellou!!";
+		return "Hello!";
 	}
 	
 }
